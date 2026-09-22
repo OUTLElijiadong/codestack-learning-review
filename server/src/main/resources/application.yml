@@ -1,0 +1,54 @@
+# ============================================================================
+# 后端全局配置 —— 需要修改的只有 spring.datasource 的 username / password 两项
+# ============================================================================
+server:
+  port: 8080
+  servlet:
+    context-path: /api        # 所有接口统一以 /api 开头（前端 vite 代理同此前缀）
+
+spring:
+  application:
+    name: review-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # serverTimezone 解决中文 Windows 必现的时区报错；
+    # allowPublicKeyRetrieval 配合 useSSL=false 满足 MySQL8 强认证公钥获取；
+    # createDatabaseIfNotExist 让首次启动自动建库（配合 SchemaInitializer 自动建表，
+    # Windows 端不再需要命令行导 sql）
+    url: jdbc:mysql://localhost:3306/review_db?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true
+    username: root            # ← 改成你本机 MySQL 的账号
+    password: 123456          # ← 改成你本机 MySQL 的密码
+  servlet:
+    multipart:
+      max-file-size: 10MB     # 单文件上限：错题截图/头像
+      max-request-size: 50MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.wy.review.entity
+  configuration:
+    map-underscore-to-camel-case: true          # 下划线 ↔ 驼峰自动映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 控制台打印 SQL，联调/答辩演示直观
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto                 # 主键自增，与 DDL 的 AUTO_INCREMENT 对应
+      logic-delete-field: deleted   # 全局逻辑删除字段：删除=UPDATE deleted=1，查询自动拼 deleted=0
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+# ---------- 自定义业务配置（review.* 为项目自定义键） ----------
+review:
+  jwt:
+    secret: wy-review-server-jwt-secret-2026-please-change-me   # HS256 密钥，至少32字符
+    expire: 604800000           # token 有效期 7 天，单位毫秒
+    header: Authorization
+    prefix: "Bearer "
+  file:
+    upload-path: ./uploads/     # 图片本地存储目录（相对 server 运行目录）
+  backup:
+    path: ./backups/            # 笔记定时备份输出目录
+    cron: "0 0 2 * * ?"         # 每天凌晨 2 点自动备份全部笔记

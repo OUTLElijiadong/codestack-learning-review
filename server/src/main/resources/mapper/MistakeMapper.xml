@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.review.mapper.MistakeMapper">
+
+    <!--
+      归档（回收站）分页：查 deleted=1 的数据。
+      全局逻辑删除开启后，MyBatis-Plus 自动方法会强制拼接 deleted=0，
+      因此"查已删除数据"只能手写 SQL —— 这是逻辑删除从"技术特性"变成
+      "业务语义（回收站）"的关键实现点
+    -->
+    <select id="selectArchivePage" resultType="com.wy.review.entity.Mistake">
+        SELECT id, user_id, title, tech_direction, error_type, error_msg,
+               is_favorite, is_top, review_count, create_time, update_time, deleted
+        FROM mistake
+        WHERE deleted = 1
+          AND user_id = #{userId}
+        <if test="keyword != null and keyword != ''">
+          AND (title LIKE CONCAT('%', #{keyword}, '%') OR error_msg LIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        ORDER BY update_time DESC
+    </select>
+
+    <!-- 从归档还原：deleted 置回 0 -->
+    <update id="restoreById">
+        UPDATE mistake SET deleted = 0 WHERE id = #{id} AND user_id = #{userId} AND deleted = 1
+    </update>
+
+    <!-- 彻底删除：物理 DELETE，不可恢复（前端已做二次确认） -->
+    <delete id="deleteForever">
+        DELETE FROM mistake WHERE id = #{id} AND user_id = #{userId} AND deleted = 1
+    </delete>
+
+</mapper>

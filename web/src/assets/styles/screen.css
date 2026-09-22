@@ -1,0 +1,135 @@
+/* ============================================================
+   数据大屏专用深色样式（仅 admin/screen/DataScreen.vue 使用）
+   纯 CSS 发光方案，不引入任何大屏库
+   ============================================================ */
+
+.screen-page {
+  min-height: 100vh;
+  color: #1E293B;
+  background:
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% -10%, #E0E9FF 0%, #F1F5FB 62%);
+  background-size: 40px 40px, 40px 40px, 100% 100%;
+  padding-bottom: 20px;
+}
+
+/* 大屏数字：等宽字体 + 青色辉光 */
+.screen-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: #0891B2;
+  text-shadow: none;
+}
+
+/* 大屏标题：渐变发光字 */
+.screen-title-text {
+  background: linear-gradient(90deg, #0369A1, #4F46E5, #7C3AED);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 标题下方装饰线 */
+.screen-title-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #6366F1, transparent);
+  margin: 8px auto 0;
+  width: 60%;
+}
+
+/* 大屏玻璃按钮 */
+.screen-btn {
+  background: #FFFFFF;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #4F46E5;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.screen-btn:hover {
+  background: #EEF2FF;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+}
+
+/* 大屏总量卡数字尺寸 */
+.screen-stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.screen-stat-label {
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 4px;
+}
+
+
+.screen-ctrl {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #FFFFFF;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #6366F1; cursor: pointer; font-size: 15px;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.screen-ctrl:hover { box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); color: #4F46E5; }
+.screen-ctrl.on {
+  color: #0891B2; border-color: #0891B2;
+  box-shadow: 0 0 10px rgba(8, 145, 178, 0.3);
+  animation: ctrl-breathe 2.4s ease-in-out infinite;
+}
+@keyframes ctrl-breathe {
+  0%, 100% { box-shadow: 0 0 8px rgba(34, 211, 238, 0.35); }
+  50% { box-shadow: 0 0 18px rgba(34, 211, 238, 0.65); }
+}
+
+/* ---------- 右侧下钻明细面板 ---------- */
+.screen-detail {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 380px; z-index: 30;
+  background: #FFFFFF;
+  border-left: 1px solid #E2E8F0;
+  box-shadow: -8px 0 30px rgba(148, 163, 184, 0.2);
+  padding: 18px 20px; overflow-y: auto;
+  color: #1E293B;
+}
+.screen-detail-head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 16px; letter-spacing: 1px;
+}
+.screen-detail-sub { font-size: 12px; color: #94A3B8; margin: 6px 0 14px; }
+
+.detail-table { font-size: 13px; }
+.dt-row {
+  display: grid; grid-template-columns: 1.1fr 1fr 0.5fr 0.9fr;
+  gap: 6px; padding: 8px 6px; border-bottom: 1px dashed #E2E8F0;
+}
+.dt-head { color: #94A3B8; border-bottom: 1px solid #CBD5E1; }
+.dt-row .dim { color: #94A3B8; }
+.dt-row .ok { color: #34D399; }
+
+.detail-list { display: flex; flex-direction: column; gap: 10px; }
+.detail-item {
+  padding: 10px 12px; border-radius: 10px;
+  background: #F8FAFF;
+  border: 1px solid #E2E8F0;
+}
+.detail-item-title { font-size: 13px; color: #1E293B; line-height: 1.5; }
+.detail-item-meta {
+  display: flex; gap: 12px; margin-top: 6px;
+  font-size: 12px; color: #94A3B8;
+}
+.detail-loading { text-align: center; color: #94A3B8; padding: 30px 0; font-size: 13px; }
+
+/* ---------- 面板入场（交错上浮） ---------- */
+.rise-in { animation: rise-in-anim 0.5s var(--ease-out) both; animation-delay: var(--d, 0ms); }
+@keyframes rise-in-anim {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 明细面板滑入 */
+.slide-right-enter-active, .slide-right-leave-active { transition: transform 0.28s var(--ease-out); }
+.slide-right-enter-from, .slide-right-leave-to { transform: translateX(100%); }

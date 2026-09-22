@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IDEA Maven 配置文件（阿里云镜像 + 英文本地仓库路径）
+  用法：File → Settings → Build, Execution, Deployment → Build Tools → Maven
+        → User settings file 勾选 Override → 浏览选择本文件 → Apply
+        → 右侧 Maven 面板点刷新（Reload All Maven Projects）
+  作用：依赖从阿里云下载（快得多），仓库固定在 D:\dev\maven-repository（绕开中文用户名路径问题）
+-->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0">
+  <localRepository>D:\dev\maven-repository</localRepository>
+  <mirrors>
+    <mirror>
+      <id>aliyun</id>
+      <mirrorOf>central</mirrorOf>
+      <name>aliyun-public</name>
+      <url>https://maven.aliyun.com/repository/public</url>
+    </mirror>
+  </mirrors>
+</settings>

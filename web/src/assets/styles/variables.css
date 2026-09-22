@@ -1,0 +1,91 @@
+/* ============================================================
+   设计令牌 —— 全站唯一的视觉常量来源
+   任何组件不允许手写 HEX，一律引用本文件变量
+   设计基调：浅色开发者工具风（浅灰底 + 白卡片 + 深色侧边栏 + 靛蓝紫品牌色）
+   ============================================================ */
+:root {
+  /* ---------- 品牌色（靛蓝紫系，开发者工具气质） ---------- */
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --primary-active: #4338CA;
+  --primary-light: #818CF8;
+  --primary-lighter: #A5B4FC;
+  --primary-bg: #EEF2FF;
+  --primary-border: #C7D2FE;
+  --brand-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --brand-gradient-deep: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+
+  /* ---------- 语义色 ---------- */
+  --success: #10B981;  --success-bg: #ECFDF5;  --success-border: #A7F3D0;
+  --warning: #F59E0B;  --warning-bg: #FFFBEB;  --warning-border: #FDE68A;
+  --danger:  #EF4444;  --danger-bg:  #FEF2F2;  --danger-border:  #FECACA;
+  --info:    #64748B;  --info-bg:    #F1F5F9;  --info-border:    #E2E8F0;
+
+  /* ---------- 中性灰阶（冷灰 Slate 系） ---------- */
+  --gray-900: #0F172A; --gray-800: #1E293B; --gray-700: #334155;
+  --gray-600: #475569; --gray-500: #64748B; --gray-400: #94A3B8;
+  --gray-300: #CBD5E1; --gray-200: #E2E8F0; --gray-100: #F1F5F9;
+  --gray-50:  #F8FAFC;
+
+  /* ---------- 表面与结构 ---------- */
+  --bg-page: #F5F7FB;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F8FAFC;
+  --sidebar-bg: #0F172A;
+  --sidebar-text: #94A3B8;
+  --sidebar-text-active: #FFFFFF;
+  --sidebar-active-bg: rgba(99, 102, 241, 0.18);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+  --code-bg: #0F172A;
+
+  /* ---------- 文字 ---------- */
+  --text-title: #0F172A;
+  --text-main: #334155;
+  --text-sub: #64748B;
+  --text-placeholder: #94A3B8;
+  --text-disabled: #CBD5E1;
+
+  /* ---------- 错误类型四色（错题核心语义，全站统一） ---------- */
+  --err-grammar: #F97316; --err-grammar-bg: #FFF7ED; --err-grammar-text: #C2410C; --err-grammar-border: #FFEDD5;
+  --err-logic:   #8B5CF6; --err-logic-bg:  #F5F3FF; --err-logic-text:  #6D28D9; --err-logic-border:  #EDE9FE;
+  --err-api:     #0EA5E9; --err-api-bg:    #F0F9FF; --err-api-text:    #0369A1; --err-api-border:    #E0F2FE;
+  --err-env:     #14B8A6; --err-env-bg:    #F0FDFA; --err-env-text:    #0F766E; --err-env-border:    #CCFBF1;
+
+  /* ---------- 圆角体系 ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-btn: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 999px;
+
+  /* ---------- 阴影体系 ---------- */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 12px 28px rgba(99, 102, 241, 0.14);
+  --shadow-pop: 0 12px 32px rgba(15, 23, 42, 0.14);
+  --shadow-btn: 0 4px 12px rgba(99, 102, 241, 0.30);
+
+  /* ---------- 间距体系（4px 基准） ---------- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px;
+
+  /* ---------- 字体方案 ---------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+               "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+  --fs-xs: 12px; --fs-sm: 13px; --fs-base: 14px; --fs-md: 15px; --fs-lg: 16px;
+  --fs-xl: 18px; --fs-2xl: 20px; --fs-3xl: 24px; --fs-4xl: 28px; --fs-5xl: 36px;
+
+  /* ---------- 动效 ---------- */
+  --ease-out: cubic-bezier(0.22, 0.68, 0.35, 1);
+  --dur-fast: 0.15s; --dur-base: 0.22s; --dur-slow: 0.35s;
+
+  /* ---------- 布局常量 ---------- */
+  --header-h: 64px;
+  --sidebar-w: 232px;
+  --sidebar-w-fold: 64px;
+  --content-pad: 24px;
+}

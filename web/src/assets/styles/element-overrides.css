@@ -1,0 +1,156 @@
+/* ============================================================
+   Element Plus 全站换肤 —— 必须在 element-plus/dist/index.css 之后引入
+   light-3/5/7/8/9 与 dark-2 均按官方"与白/黑按 10% 步长混合"算法精确计算
+   ============================================================ */
+:root {
+  /* 主色系列 */
+  --el-color-primary: #6366F1;
+  --el-color-primary-dark-2: #4F52C1;
+  --el-color-primary-light-3: #9294F5;
+  --el-color-primary-light-5: #B1B3F8;
+  --el-color-primary-light-7: #D0D1FB;
+  --el-color-primary-light-8: #E0E0FC;
+  --el-color-primary-light-9: #EFF0FE;
+
+  /* 成功 */
+  --el-color-success: #10B981;
+  --el-color-success-dark-2: #0D9467;
+  --el-color-success-light-3: #58CEA7;
+  --el-color-success-light-5: #88DCC0;
+  --el-color-success-light-7: #B7EAD9;
+  --el-color-success-light-8: #CFF1E6;
+  --el-color-success-light-9: #E7F8F2;
+
+  /* 警告 */
+  --el-color-warning: #F59E0B;
+  --el-color-warning-dark-2: #C47E09;
+  --el-color-warning-light-3: #F8BB54;
+  --el-color-warning-light-5: #FACF85;
+  --el-color-warning-light-7: #FCE2B6;
+  --el-color-warning-light-8: #FDECCE;
+  --el-color-warning-light-9: #FEF5E7;
+
+  /* 危险 + 错误（Element 内部两者并用，必须同时改） */
+  --el-color-danger: #EF4444;
+  --el-color-danger-dark-2: #BF3636;
+  --el-color-danger-light-3: #F47C7C;
+  --el-color-danger-light-5: #F7A2A2;
+  --el-color-danger-light-7: #FAC7C7;
+  --el-color-danger-light-8: #FCDADA;
+  --el-color-danger-light-9: #FDECEC;
+  --el-color-error: #EF4444;
+  --el-color-error-dark-2: #BF3636;
+  --el-color-error-light-3: #F47C7C;
+  --el-color-error-light-5: #F7A2A2;
+  --el-color-error-light-7: #FAC7C7;
+  --el-color-error-light-8: #FCDADA;
+  --el-color-error-light-9: #FDECEC;
+
+  /* 信息 */
+  --el-color-info: #64748B;
+  --el-color-info-dark-2: #505D6F;
+  --el-color-info-light-3: #939EAE;
+  --el-color-info-light-5: #B2BAC5;
+  --el-color-info-light-7: #D1D5DC;
+  --el-color-info-light-8: #E0E3E8;
+  --el-color-info-light-9: #F0F1F3;
+
+  /* 文字 */
+  --el-text-color-primary: #1E293B;
+  --el-text-color-regular: #475569;
+  --el-text-color-secondary: #64748B;
+  --el-text-color-placeholder: #94A3B8;
+  --el-text-color-disabled: #CBD5E1;
+
+  /* 边框 */
+  --el-border-color: #CBD5E1;
+  --el-border-color-light: #E2E8F0;
+  --el-border-color-lighter: #E2E8F0;
+  --el-border-color-extra-light: #F1F5F9;
+  --el-border-radius-base: 8px;
+  --el-border-radius-small: 6px;
+  --el-border-radius-round: 999px;
+
+  /* 填充与背景 */
+  --el-fill-color: #F1F5F9;
+  --el-fill-color-light: #F8FAFC;
+  --el-fill-color-lighter: #F8FAFC;
+  --el-fill-color-blank: #FFFFFF;
+  --el-bg-color: #FFFFFF;
+  --el-bg-color-page: #F5F7FB;
+  --el-bg-color-overlay: #FFFFFF;
+
+  /* 字体与阴影 */
+  --el-font-family: var(--font-sans);
+  --el-font-size-base: 14px;
+  --el-box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+  --el-box-shadow-light: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --el-box-shadow-lighter: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --el-box-shadow-dark: 0 16px 40px rgba(15, 23, 42, 0.18);
+}
+
+/* ---------- 组件级微调 ---------- */
+.el-button {
+  font-weight: 500;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.el-button--primary {
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.24);
+}
+.el-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(99, 102, 241, 0.32);
+}
+.el-button--primary:active { transform: translateY(0); }
+
+.el-card {
+  border-radius: var(--radius-lg);
+  border-color: var(--gray-200);
+  --el-card-padding: 20px;
+}
+.el-dialog { border-radius: var(--radius-xl); }
+.el-message { border-radius: var(--radius-md); }
+.el-message-box { border-radius: var(--radius-xl); }
+
+.el-table {
+  --el-table-header-bg-color: #F8FAFC;
+  --el-table-header-text-color: #475569;
+  --el-table-row-hover-bg-color: #EEF2FF;
+  --el-table-border-color: #E2E8F0;
+  --el-table-tr-bg-color: #FFFFFF;
+  font-size: 13px;
+}
+.el-table th.el-table__cell { font-weight: 600; }
+
+.el-tag { border-radius: 999px; font-weight: 500; }
+.el-input__wrapper { transition: box-shadow var(--dur-base) var(--ease-out); }
+.el-pagination { --el-pagination-hover-color: #6366F1; }
+.el-drawer { --el-drawer-padding-primary: 24px; }
+
+/* wangEditor 工具栏与正文风格贴合全站 */
+.editor-shell .w-e-toolbar {
+  border-bottom: 1px solid var(--gray-200) !important;
+  background: var(--gray-50) !important;
+}
+.editor-shell .w-e-text-container {
+  border-top: none !important;
+}
+.editor-shell .w-e-text-container [data-slate-editor] {
+  font-family: var(--font-sans);
+  color: var(--text-main);
+}
+/* 编辑器内代码块深色高亮 */
+.editor-shell pre,
+.editor-content pre {
+  background: var(--code-bg);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.editor-shell pre code,
+.editor-content pre code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: #E2E8F0;
+}
