@@ -28,6 +28,7 @@ target/
 .nuxt/
 .turbo/
 .parcel-cache/
+.wrangler/
 coverage/
 *.lcov
 
@@ -35,19 +36,32 @@ coverage/
 .env
 .env.*
 !.env.example
+!.env.sample
+!.env.template
+!.env.dist
+.dev.vars
+!.dev.vars.example
+.secret_key
+.npmrc
+.pypirc
+.netrc
 *.pem
 *.key
 *.p12
 *.pfx
 *.jks
 *.keystore
+id_rsa
+id_ed25519
 credentials.json
 serviceAccount.json
 
 # ---- 数据与备份 ----
-*.db
-*.sqlite
-*.sqlite3
+# 注：仓库内的 *.db 是随项目提供的演示数据库（开箱即用），已被显式收录；
+# 下面几条只拦运行期新生成的临时文件。
+*.db-wal
+*.db-shm
+*.db-journal
 *.sql.gz
 *.dump
 backups/
